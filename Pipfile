@@ -15,6 +15,7 @@ python-multipart = "*"
 fastapi-pagination = "*"
 pytest = "*"
 httpx = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 

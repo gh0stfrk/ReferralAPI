@@ -23,10 +23,11 @@ def configure_test_database(app):
     Base.metadata.create_all(bind=engine)
     app.dependency_overrides[get_db] = override_get_db
 
-
+def drop_all_tables():
+    Base.metadata.drop_all(bind=engine)
+    
 def truncate_tables(tables):
     ''' Truncate rows of all input tables '''
-    
     with engine.connect() as con:
         
         IGNORE_CONSTRAINTS = """PRAGMA ignore_check_constraints = 0"""
@@ -41,3 +42,4 @@ def truncate_tables(tables):
             con.execute(text(f"DELETE FROM {line}"))
             print(f"DELETE FROM {line}")
         con.execute(text(DISABLE_IGNORE_CONSTRAINTS))
+    # Base.metadata.drop_all(bind=engine)

@@ -8,3 +8,6 @@ def configure_test_database(app):
 def clear_database():
     """ Clears database """
     database_config.truncate_tables(tables)
+
+def drop_all():
+    database_config.drop_all_tables()
