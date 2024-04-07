@@ -12,6 +12,7 @@ passlib = "*"
 pydantic = {extras = ["email"], version = "*"}
 python-dotenv = "*"
 python-multipart = "*"
+fastapi-pagination = "*"
 
 [dev-packages]
 

@@ -61,7 +61,7 @@ def get_user_from_token(token: str) -> User | None :
         user: User = get_user_by_username(db, username)
         if user:
             return user
-    return None
+    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User does not exist")
 
 def hash_password(password: str) -> str:
     """

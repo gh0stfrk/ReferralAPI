@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from typing import List
 from .models import User
-from .schemas import UserCreate
+from .schemas import UserProfile, UserCreate
 from ...utils import hash_password, generate_unique_code
 
 def create_user(db: Session, user: UserCreate) -> User:
@@ -69,3 +69,14 @@ def check_email_and_username_exist(db: Session, email: str, username: str) -> bo
     if user:
         return True
     return False
+
+def get_referred_users_from_user(db: Session, user: User) -> List[User]:
+    """
+    Get a list of users that have referred the given user
+    :param db: Database session
+    :param user: User object to get referred users from
+    :return: List of user objects
+    """
+    users = db.query(User).filter(User.reffered_by == user.referral_code).all()
+    print(users)
+    return users

@@ -34,3 +34,16 @@ class UserLogin(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+    
+class UserProfile(BaseModel):
+    name: str
+    username: str
+    email: EmailStr
+    created_at: datetime
+    
+    @field_serializer('created_at')
+    def serialize_dt(dt: datetime) -> str:
+        return dt.strftime("%Y-%m-%d")
+    
+    class Config:
+        from_attributes = True
