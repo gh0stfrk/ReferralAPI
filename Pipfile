@@ -13,6 +13,8 @@ pydantic = {extras = ["email"], version = "*"}
 python-dotenv = "*"
 python-multipart = "*"
 fastapi-pagination = "*"
+pytest = "*"
+httpx = "*"
 
 [dev-packages]
 
