@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi_pagination import Page
-from fastapi_pagination.ext.sqlalchemy import paginate
+from fastapi_pagination import paginate
 from ..dependencies_ import get_db, get_current_user, validate_token
 from ..domain.user.schemas import UserCreate, User, UserProfile
 from ..domain.user.service import create_user, get_user_by_username, get_user, check_email_and_username_exist,get_referred_users_from_user
